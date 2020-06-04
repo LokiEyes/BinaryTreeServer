@@ -27,7 +27,7 @@ public class HandlerServer extends Thread {
       out.println("2. Doubles");
       out.println("3. Strings");
 
-      // todo - initialize tree with chosen type
+      // todo - initialize tree with the chosen type
 
     } catch (IOException | InputMismatchException e) {
       e.printStackTrace();
