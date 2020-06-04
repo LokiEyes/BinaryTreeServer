@@ -22,10 +22,12 @@ public class HandlerServer extends Thread {
       in = new Scanner(client.getInputStream());
       out = new PrintWriter(client.getOutputStream(), true);
 
-      out.println("Na jakim typie drzewa chciałbyś operować? (1/2/3)");
-      out.println("1. Liczby całkowite - Integer");
-      out.println("2. Liczby zmiennoprzecinkowe - Double");
-      out.println("3. Łańcuchy znaków - String");
+      out.println("On which tree's type would you like to operate? (1/2/3)");
+      out.println("1. Integers");
+      out.println("2. Doubles");
+      out.println("3. Strings");
+
+      // todo - initialize tree with chosen type
 
     } catch (IOException | InputMismatchException e) {
       e.printStackTrace();
