@@ -9,15 +9,15 @@ import javax.swing.JPanel;
 
 public class TreeFrame extends JFrame {
 
+  public static final int INSERT = 1;
+  public static final int DELETE = 2;
+  public static final int SEARCH = 3;
+  public static final int NONE = 0;
   JPanel context = new JPanel();
   String IP = "";
   Object[] options = {"Integer", "Double", "String"};
   int result;
   int status = 0;
-  public static final int INSERT = 1;
-  public static final int DELETE = 2;
-  public static final int SEARCH = 3;
-  public static final int NONE   = 0;
   String value;
 
   public TreeFrame() {
@@ -44,15 +44,18 @@ public class TreeFrame extends JFrame {
     close.addActionListener(e -> System.exit(0));
 
     insert.addActionListener(e -> {
-      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do dodania:", "Insert", JOptionPane.QUESTION_MESSAGE);
+      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do dodania:", "Insert",
+          JOptionPane.QUESTION_MESSAGE);
       status = INSERT;
     });
     delete.addActionListener(e -> {
-      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do usunięcia:", "", JOptionPane.QUESTION_MESSAGE);
+      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do usunięcia:", "",
+          JOptionPane.QUESTION_MESSAGE);
       status = DELETE;
     });
     search.addActionListener(e -> {
-      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do sprawdzenia:", "", JOptionPane.QUESTION_MESSAGE);
+      value = JOptionPane.showInputDialog(context, "Prosze podac warosc do sprawdzenia:", "",
+          JOptionPane.QUESTION_MESSAGE);
       status = SEARCH;
     });
 
@@ -74,11 +77,11 @@ public class TreeFrame extends JFrame {
   }
 
   public String getIP() {
-    return IP.equals("") ? null : IP.split(":")[0];
+    return IP.equals("") ? "127.0.0.1" : IP.split(":")[0];
   }
 
   public int getPort() {
-    return Integer.parseInt(IP.equals("") ? "0" : IP.split(":")[1]);
+    return Integer.parseInt(IP.equals("") ? "5555" : IP.split(":")[1]);
   }
 
   public int getTreeType() {
