@@ -25,4 +25,15 @@ public class MultipleServer {
       ioe.printStackTrace();
     }
   }
+
+  public static void main(String[] args) {
+    int port;
+    MultipleServer server = new MultipleServer();
+    if (args.length == 0) {
+      port = 5555;
+    } else {
+      port = Integer.parseInt(args[0]);
+    }
+    server.start(port);
+  }
 }

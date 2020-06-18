@@ -1,8 +1,14 @@
 package com.ropoocha.tree;
 
-public class BinaryTree<T extends Comparable<T>> {
+import java.io.Serializable;
+
+public class BinaryTree<T extends Comparable<T>> implements Serializable {
 
   private Node<T> root;
+
+  public BinaryTree() {
+
+  }
 
   private Node<T> insertRecursive(Node<T> current, T value) {
     if (current == null) {
@@ -22,6 +28,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
   public void insert(T value) {
     root = insertRecursive(root, value);
+    System.out.println("Dodano: " + value.toString());
   }
 
   private Node<T> deleteRecursive(Node<T> current, T value) {
@@ -53,6 +60,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
   public void delete(T value) {
     root = deleteRecursive(root, value);
+    System.out.println("Usunięto: " + value.toString());
   }
 
   private T findSmallestValue(Node<T> root) {
@@ -73,6 +81,8 @@ public class BinaryTree<T extends Comparable<T>> {
   }
 
   public boolean search(T value) {
+    System.out.println("Wyszukano: " + value.toString());
     return searchRecursive(root, value);
   }
+
 }
